@@ -1,0 +1,10 @@
+.tableRoot {
+    --headerSize: 48px;
+    --pagePadding: 48px;
+
+    height: calc(100vh - var(--pagePadding) - var(--headerSize));
+
+    h1 {
+        text-align: center;
+    }
+}
