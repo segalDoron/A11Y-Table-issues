@@ -1,8 +1,8 @@
-.tableRoot {
-    --headerSize: 48px;
-    --pagePadding: 48px;
+/* page root is 48px */
+/* header size is 48px */
 
-    height: calc(100vh - var(--pagePadding) - var(--headerSize));
+.tableRoot {
+    height: calc(100vh - 48px - 48px);
 
     h1 {
         text-align: center;
