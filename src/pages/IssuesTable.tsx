@@ -3,8 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { useTable } from '../context/TableContext';
 
-
-const IsuessTable = () => {
+const IssuesTable = () => {
   const { setTableInfo } = useTable();
   // const navigate = useNavigate();
 
@@ -19,4 +18,4 @@ const IsuessTable = () => {
     </h1>
   );
 }
-export default IsuessTable;
+export default IssuesTable;

@@ -4,10 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import Loader from '../../components/loader/loader';
 import PlaceHolder from '../../components/PlaceHolder/PlaceHolder';
 
-import './isuessTable.css'
+import './issuesTable.css'
 
-const IsuessTable = () => {
-  const [isLoading, setIsloading] = React.useState<boolean>(false);
+const IssuesTable = () => {
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isFetchError, setIsFeatchError] = React.useState<boolean>(false);
 
   if (isLoading) {
@@ -25,7 +25,7 @@ const IsuessTable = () => {
 
     return (
       <>
-         <div className="tableRoot">
+          <div className="tableRoot">
           <h1>A11Y Issues overview</h1>
             <PlaceHolder type='error' buttonProps={{action, buttonText}}/>
         </div>
@@ -47,4 +47,4 @@ const IsuessTable = () => {
     </div>
   );
 }
-export default IsuessTable;
+export default IssuesTable;

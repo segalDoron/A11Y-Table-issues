@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
-import IsuessTable from '../pages/IsuessTable/IsuessTableContainer';
+import IssuesTable from '../pages/IsuessTable/IssuesTableTableContainer';
 import About from '../pages/About';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <IsuessTable />,
+    element: <IssuesTable />,
   },
   {
     path: '/a11y-issue',

@@ -10,7 +10,7 @@ const loader = ({isLoading = false}: LoaderProps) => {
     <RotatingLines
       visible={isLoading}
       strokeColor="#607085"
-      ariaLabel="Spping loader"
+      ariaLabel="Spinning loader"
     />
   );
 }
