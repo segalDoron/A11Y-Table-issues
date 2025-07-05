@@ -1,0 +1,104 @@
+.table-container {
+  width: 100%;
+  height: calc(100vh - 48px - 16px);
+  overflow-x: auto;
+  padding: 8px;
+  background-color: #80808024;
+
+  .table-body-scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-width: 768px;
+    max-height: calc(100% - 45px - 8px);
+  }
+
+  .table-root {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffff;
+    min-width: 768px; /* The min width is equls to a avarge tablet width */
+    table-layout: fixed;
+  
+    .active-sorted-cloumn {
+      font-weight: 600;
+      background-color: #435060;
+    }
+
+    thead {
+      background-color: #607085;
+    }
+
+    th, td {
+      height: 45px;
+      padding: 0 16px;
+      font-size: 12px;
+      text-align: left;
+      max-width: 160px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-family: 'Lato', sans-serif;
+      border-left: 1px solid #ffff;
+      border-bottom: 1px solid #607085;
+
+      .th-content {
+        width: 100%;
+        display: flex;
+        color: #ffff;
+        align-items: center;
+        text-transform: uppercase;
+        justify-content: flex-start;
+
+        span {
+          display: inline-block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .sort-icon {
+          flex-shrink: 0;
+          background: none;
+          border: none;
+          font-size: 14px;
+          cursor: pointer;
+          color: #444;
+          margin-left: 4px;
+        }
+        
+        .sort-icon:focus {
+          outline: 2px solid #4d90fe;
+          outline-offset: 2px;
+        }
+      }
+
+    }
+
+    .clickable-row {
+      cursor: pointer;
+      padding: 16px 0;
+      transition: background-color 0.2s ease-in-out;
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+    }
+
+    .clickable-row:hover,
+    .clickable-row:focus {
+      background-color: #f5faff;
+      outline: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .table-root {
+    font-size: 14px;
+  }
+
+  .table-root th,
+  .table-root td {
+    padding: 8px;
+  }
+}

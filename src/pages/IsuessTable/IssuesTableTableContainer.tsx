@@ -1,6 +1,6 @@
 import React from "react";
 import { isUndefined } from "lodash";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Loader from '../../components/loader/loader';
 import PlaceHolder from '../../components/PlaceHolder/PlaceHolder';
@@ -58,6 +58,7 @@ const IssuesTable = () => {
 
   return (
     <>
+     <Link to="/a11y-issue-table">Table</Link> | <Link to="/a11y-issue-table-2">Table2</Link>
       <div className="tableRoot">
         <h1>A11Y Issues Overview</h1>
         <table>

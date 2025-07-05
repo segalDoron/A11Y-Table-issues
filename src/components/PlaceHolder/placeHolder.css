@@ -21,11 +21,11 @@
         border-radius: 12px;
 
         @media (prefers-reduced-motion: reduce) {
-            transition-duration: 0.01 !important;
-          }
+          transition-duration: 0.01 !important;
         }
+    }
 
-        button:hover {
+    button:hover {
         background-color: #e7e7e7;
     }
 }
