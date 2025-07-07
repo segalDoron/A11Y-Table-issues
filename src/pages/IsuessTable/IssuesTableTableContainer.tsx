@@ -58,7 +58,7 @@ const IssuesTable = () => {
 
   return (
     <>
-     <Link to="/a11y-issue-table">Table</Link> | <Link to="/a11y-issue-table-2">Table2</Link>
+     <Link to="/a11y-issue-table">Table</Link> | <Link to="/a11y-issue-table-2">Table2</Link> | <Link to="/a11y-issue-table-virtual">virtual</Link>
       <div className="tableRoot">
         <h1>A11Y Issues Overview</h1>
         <table>

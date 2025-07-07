@@ -1,6 +1,8 @@
 import React from "react";
 
-import somethingWantWrong from '../../assets/something-went-wrong.webp';
+import succuess from '@/assets/success.webp';
+import nothigToSee from '@/assets/nothing-here.webp';
+import somethingWantWrong from '@/assets/something-went-wrong.webp';
 import './placeHolder.css'
 
 const Types = {
@@ -8,9 +10,13 @@ const Types = {
     imgSrc: somethingWantWrong, 
     alt: "Oops something went wrong"
   },
+  success : {
+    imgSrc: succuess, 
+    alt: "Greate sucess"
+  },
   empty : {
-    imgSrc: somethingWantWrong, 
-    alt: "Nothing to show"
+    imgSrc: nothigToSee,
+    alt: "Nothis to see here"
   }
 } as const;
 
@@ -22,9 +28,13 @@ type ButtonProps = {
 type PlaceHolderProps = {
     type: keyof typeof Types;
     buttonProps?: ButtonProps;
+    infoText?: string;
+    width?: string;
+    height?: string;
+    
 };
 
-const PlaceHolder = ({type, buttonProps}: PlaceHolderProps) => {
+const PlaceHolder = ({type, buttonProps, width = 'auto', height = 'auto' ,infoText = ''}: PlaceHolderProps) => {
     
     if (!buttonProps && !type) {
         return null;
@@ -38,11 +48,12 @@ const PlaceHolder = ({type, buttonProps}: PlaceHolderProps) => {
             <img
                 src={imgSrc}
                 alt={alt}
-                width="600"
-                height="300"
+                width={width}
+                height={height}
                 loading="lazy"
                 decoding="async"
             />
+            <div>{infoText}</div>
             {buttonProps && (
               <button onClick={action}>{buttonText}</button>
             )}

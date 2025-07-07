@@ -1,0 +1,17 @@
+.table-container {
+  width: 100%;
+  height: calc(100vh - 156px);
+  overflow-x: auto;
+  padding: 8px;
+  background-color: #80808024;
+}
+
+@media (max-width: 768px) {
+  .table-root {
+    font-size: 14px;
+  }
+
+  .table-root th{
+    padding: 8px;
+  }
+}

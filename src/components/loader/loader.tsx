@@ -15,7 +15,7 @@ const loader = ({isLoading = false}: LoaderProps) => {
       strokeColor="#607085"
       ariaLabel="Spinning loader"
     />
-    This will take a minute
+      This will take a minute
     </div>
   );
 }

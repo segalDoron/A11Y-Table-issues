@@ -1,0 +1,10 @@
+/* page root is 48px */
+/* header size is 48px */
+
+.root {
+    height: calc(100vh - 48px - 48px);
+
+    h1 {
+        text-align: center;
+    }
+}

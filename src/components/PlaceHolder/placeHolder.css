@@ -1,5 +1,5 @@
 .placeHolderRoot {
-    height: calc(100vh - 48px);
+    margin-top: 56px;
     display: flex;
     flex-direction: column;
     gap: 16px;

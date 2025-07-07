@@ -1,14 +1,4 @@
-export type Issue = {
-    id: number;
-    issueType: string;
-    severity: 'Low' | 'Minor' | 'Critical';
-    component: string;
-    selector: string;
-    url: string;
-    description: string;
-    codeSnippet: string;
-    screenshot: string;
-  };
+import {type Issue} from '../types/issues';
 
   const mockData: Issue[] = [
 
@@ -80,19 +70,19 @@ export type Issue = {
     }
   ]
 
-  export function fetchMockIssues({
-    isSuccessfull = true,
+  export const fetchMockIssues = ({
+    isSuccessfullFetch = true,
     isEmpty = false,
   }: {
-    isSuccessfull?: boolean;
+    isSuccessfullFetch?: boolean;
     isEmpty?: boolean;
-  }): { promise: Promise<Issue[]>; cancel: () => void } {
+  }): { promise: Promise<Issue[]>; cancel: () => void } =>{
   
     let timeoutId: ReturnType<typeof setTimeout>;
   
     const promise = new Promise<Issue[]>((resolve, reject) => {
       timeoutId = setTimeout(() => {
-        if (!isSuccessfull) {
+        if (!isSuccessfullFetch) {
           reject(new Error('Mock fetch failed'));
         } else {
           resolve(isEmpty ? [] : mockData);
