@@ -1,6 +1,4 @@
-import React, {type RefObject, type Ref} from 'react';
-import _ from 'lodash';
-
+import React, {type RefObject} from 'react';
 import { FixedSizeList as List, type ListChildComponentProps } from 'react-window';
 
 import { useTableContext } from '@/context/TableContext';

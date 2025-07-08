@@ -1,5 +1,4 @@
 import React from 'react';
-import {isNull} from 'lodash'
 import { useNavigate } from 'react-router-dom';
 
 import { useTableContext } from '@/context/TableContext';

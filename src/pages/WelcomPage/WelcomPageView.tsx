@@ -1,4 +1,3 @@
-import React from "react";
 import { isUndefined } from "lodash";
 
 import { type Issue } from '@/types/issues';

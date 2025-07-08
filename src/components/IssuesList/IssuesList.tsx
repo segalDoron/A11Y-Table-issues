@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { FixedSizeList as List, type ListChildComponentProps } from 'react-window';
+import { type ListChildComponentProps } from 'react-window';
 
 import IssueRow from '@/components/IsuessRow/IsuessRow'
 import { useDebouncedSearch } from '@/hooks/useDebouncedSearch';
@@ -17,7 +17,6 @@ type IssuesListProps = {
 const ROW_HEIGHT = 45;
 
 const IssuesList = ({data}: IssuesListProps) => {
-  const listRef = React.useRef<List>(null);
   const [sortAsc, setSortAsc] = React.useState(true);
   const containerRef = React.useRef<HTMLDivElement | null>(null);
   const [listHeight, setListHeight] = React.useState<number>(400);

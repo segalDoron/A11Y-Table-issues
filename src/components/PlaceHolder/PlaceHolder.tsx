@@ -1,5 +1,3 @@
-import React from "react";
-
 import succuess from '@/assets/success.webp';
 import nothigToSee from '@/assets/nothing-here.webp';
 import somethingWantWrong from '@/assets/something-went-wrong.webp';

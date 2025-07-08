@@ -1,4 +1,3 @@
-import React from 'react';
 import {isNull} from 'lodash'
 import { Link } from 'react-router-dom';
 
