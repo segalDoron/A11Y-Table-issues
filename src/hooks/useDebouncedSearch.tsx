@@ -13,11 +13,10 @@ export const useDebouncedSearch = ({ data, onSearchResult}: SearchProps) => {
     _.debounce((searchTerm: string, sreach_coloumn: string) => {
       const term = _.toLower(searchTerm.trim());
 
-      const results = data.filter((item) => {
-          const value = _.toLower(_.get(item, sreach_coloumn, ''));
-          return _.includes(value, term);
-      });
-
+      const results = _.filter(data, item => {
+        const value = _.toLower(_.get(item, sreach_coloumn, ''));
+        return _.includes(value, term);
+      })
       onSearchResult(results);
     }, 300)
   ).current;

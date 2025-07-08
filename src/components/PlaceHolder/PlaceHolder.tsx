@@ -34,7 +34,7 @@ type PlaceHolderProps = {
     
 };
 
-const PlaceHolder = ({type, buttonProps, width = 'auto', height = 'auto' ,infoText = ''}: PlaceHolderProps) => {
+const PlaceHolder = ({type, buttonProps, width = '600', height = '240' ,infoText = ''}: PlaceHolderProps) => {
     
     if (!buttonProps && !type) {
         return null;

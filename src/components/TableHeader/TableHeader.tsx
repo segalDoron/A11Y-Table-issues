@@ -10,11 +10,20 @@ type TableHeaderProps = {
     setSortAsc?: React.Dispatch<React.SetStateAction<boolean>>,
     setSortKey?: React.Dispatch<React.SetStateAction<ColumnKey>>,
     searchableColumns?: ColumnKey[],
+    columns: ColumnKey[],
     searchFunction?: DebouncedFunc<(searchTerm: string, columnKey: string) => void>,
 
 }
 
-const TableHeader = ({sortKey, setSortAsc, sortAsc, setSortKey, searchableColumns, searchFunction}: TableHeaderProps) => {
+const TableHeader = ({
+    sortKey,
+    setSortAsc,
+    sortAsc,
+    setSortKey,
+    searchableColumns,
+    searchFunction,
+    columns,
+}: TableHeaderProps) => {
 
     const getHeaderCoulmnStyle = (key: ColumnKey) => {
         const activeSortStyle = sortKey === key ? 'active-sorted-cloumn' : '';
@@ -39,7 +48,7 @@ const TableHeader = ({sortKey, setSortAsc, sortAsc, setSortKey, searchableColumn
         <table className="header-root">
             <thead>
                 <tr>
-                    {COLUMN_KEYS.map((key: ColumnKey) => (
+                    {columns.map((key: ColumnKey) => (
                         <th 
                             key={key}
                             scope="col"

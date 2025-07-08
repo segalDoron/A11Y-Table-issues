@@ -3,24 +3,35 @@ import _ from 'lodash';
 import { FixedSizeList as List, type ListChildComponentProps } from 'react-window';
 
 import IssueRow from '@/components/IsuessRow/IsuessRow'
+import { useTableContext } from '@/context/TableContext';
 import TableHeader from '@/components/TableHeader/TableHeader';
 import { useDebouncedSearch } from '@/hooks/useDebouncedSearch';
 import Placeholder from '@/components/PlaceHolder/PlaceHolder';
-import { SEARCHABLE_COLUMNS, type ColumnKey, type Issue } from '@/types/issues';
+import { COLUMN_NAMES, SEARCHABLE_COLUMNS, type ColumnKey, type Issue } from '@/types/issues';
 import './IssuesList.css';
 
 type IssuesListProps = {
     data?: Issue[];
-  };
+};
 
 const ROW_HEIGHT = 45;
 
 const IssuesList = ({data}: IssuesListProps) => {
+  const listRef = React.useRef<List>(null);
+  const { selectedIssueNumber } = useTableContext();
   const [sortAsc, setSortAsc] = React.useState(true);
   const containerRef = React.useRef<HTMLDivElement | null>(null);
   const [listHeight, setListHeight] = React.useState<number>(400);
   const [sortKey, setSortKey] = React.useState<ColumnKey>('rowIndex');
   const [filteredIssues, setFilteredIssues] = React.useState<Issue[]>(data ?? []);
+
+  React.useEffect(() => {
+    if (selectedIssueNumber && listRef) {
+      if (listRef.current) {
+        listRef.current.scrollToItem(selectedIssueNumber, "center");
+      }
+    }
+  }, [selectedIssueNumber, listRef]);
 
   const debouncedSearch = useDebouncedSearch({
     data: data ?? [],
@@ -71,31 +82,33 @@ const IssuesList = ({data}: IssuesListProps) => {
   };
 
   return (
-    <div className="table-container" role="region" aria-label="Accecabilty issues Table" ref={containerRef}>
+    <section className="table-container" role="region" aria-label="Accecabilty issues Table" ref={containerRef}>
       <TableHeader
         sortKey={sortKey}
         sortAsc={sortAsc}
         setSortAsc={setSortAsc}
         setSortKey={setSortKey}
         searchFunction={debouncedSearch}
+        columns={Object.keys(COLUMN_NAMES) as ColumnKey[]}
         searchableColumns={SEARCHABLE_COLUMNS}
       />
       {_.isEmpty(filteredIssues) ? 
          <Placeholder type='empty' infoText='Nothing to see here' height="312"/> :
          <List
-         width="100%"
-         height={listHeight}
-         itemSize={ROW_HEIGHT}
-         outerElementType="div"
-         innerElementType="div"
-         itemCount={_.size(sortedData)}
-         style={{ minWidth: '768px'}}
-         itemData={{sortAsc, listSize: _.size(filteredIssues)}}
-       >
+            ref={listRef}
+            width="100%"
+            height={listHeight}
+            itemSize={ROW_HEIGHT}
+            outerElementType="div"
+            innerElementType="div"
+            itemCount={_.size(sortedData)}
+            style={{ minWidth: '768px'}}
+            itemData={{sortAsc, listSize: _.size(filteredIssues)}} // do I need it
+          >
          {Row}
        </List>
       }
-    </div>
+    </section>
   );
 };
 

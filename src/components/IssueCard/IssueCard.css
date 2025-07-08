@@ -1,0 +1,75 @@
+.card {
+    min-width: 240px;
+    width: calc(100% - 64px);
+    border-radius: 20px;
+    background: #f5f5f5;
+    position: relative;
+    padding: 32px;
+    border: 2px solid #c3c6ce;
+
+    .card-details {
+      color: black;
+      height: 100%;
+      gap: 8px;
+      display: grid;
+
+      .codeSnippe {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      img {
+        max-width: calc(100% - 64px - 64px);
+      }
+
+      .card-header {
+        color: rgb(134, 134, 134);
+       }
+
+      .accessible-link {
+        background: none;
+        border: none;
+        padding: 0;
+        color: #007bff;
+        text-decoration: underline;
+        cursor: pointer;
+        font: inherit;
+        width: fit-content;
+      }
+      
+      .accessible-link:hover,
+      .accessible-link:focus {
+        text-decoration: none;
+        outline: 2px solid #0056b3;
+        outline-offset: 2px;
+      }
+      
+      .accessible-link:focus {
+        outline: 2px solid #005fcc;
+        outline-offset: 2px;
+      }
+    }
+}
+
+.isSelected {
+  border: 2px solid #005fcc;
+}
+
+@media (max-width: 480px) {
+  .card {
+    min-width: auto;
+    width: auto;
+
+    .card-header {
+      margin: 0;
+      height: 48px;
+    }
+  }
+
+  .card:focus {
+    border-color: #008bf8;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+  

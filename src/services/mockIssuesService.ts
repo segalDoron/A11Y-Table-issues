@@ -11,7 +11,7 @@ import {type Issue} from '../types/issues';
         "url": "https://www.zzzz.co.uk",
         "description": "The button is not keyboard accessible.",
         "codeSnippet": "<button>Click me</button>",
-        "screenshot": "https://via.placeholder.com/150"
+        "screenshot": "https://placehold.co/150"
     },
     {
         "id": 3,
@@ -22,7 +22,7 @@ import {type Issue} from '../types/issues';
         "url": "https://www.zzzz.co.uk",
         "description": "Image button lacks accessible name.",
         "codeSnippet": "<img src='image.png' alt=''>",
-        "screenshot": "https://via.placeholder.com/150"
+        "screenshot": "https://placehold.co/150"
     },
     {
         "id": 2,
@@ -33,7 +33,7 @@ import {type Issue} from '../types/issues';
         "url": "https://www.aaa.co.uk",
         "description": "Role is not explicitly defined.",
         "codeSnippet": "<div role='button'>Press</div>",
-        "screenshot": "https://via.placeholder.com/150"
+        "screenshot": "https://placehold.co/150"
     },
     {
         "id": 16,
@@ -44,7 +44,7 @@ import {type Issue} from '../types/issues';
         "url": "https://www.zzzz.co.uk",
         "description": "Element is not focusable.",
         "codeSnippet": "<div>Not keyboard accessible</div>",
-        "screenshot": "https://via.placeholder.com/150"
+        "screenshot": "https://placehold.co/150"
     },
     {
         "id": 8,
@@ -55,7 +55,7 @@ import {type Issue} from '../types/issues';
         "url": "https://www.fff.co.uk",
         "description": "Missing tabindex on a non-interactive element.",
         "codeSnippet": "<div tabindex='0'>Focusable</div>",
-        "screenshot": "https://via.placeholder.com/150"
+        "screenshot": "https://placehold.co/150"
     },
     {
         "id": 9,
@@ -66,7 +66,7 @@ import {type Issue} from '../types/issues';
         "url": "https://www.aaa.co.uk",
         "description": "Text color does not meet contrast ratiostandards.",
         "codeSnippet": "<p style='color: #ccc;'>Low contrast text</p>",
-        "screenshot": "https://via.placeholder.com/150"
+        "screenshot": "https://placehold.co/150"
     }
   ]
 

@@ -74,3 +74,18 @@
       }
     }
 }
+
+@media (max-width: 480px) {
+  .header-root {
+    min-width: auto;
+    margin-bottom: 24px;
+    
+    th {
+      padding: 0 4px;
+    }
+
+    .index-cloumn {
+      width: 40px;
+    }
+  }
+}

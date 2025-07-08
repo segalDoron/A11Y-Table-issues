@@ -1,6 +1,8 @@
 import React from 'react';
 import {map} from 'lodash';
+import { useNavigate } from 'react-router-dom';
 
+import { useTableContext } from '@/context/TableContext';
 import { COLUMN_KEYS, type Issue } from '@/types/issues';
 import './IsuessRow.css'
 
@@ -19,6 +21,10 @@ const Row = ({
     listSize,
     sortedData,
  }: RowProps) => {
+
+    const navigate = useNavigate();
+    const {setSelectedIssue, selectedIssueNumber, setSelectedIssueNumber } = useTableContext();
+
     
     if (!sortedData || !sortedData[index]) {
         return null;
@@ -26,18 +32,24 @@ const Row = ({
 
     const row = sortedData[index];
 
+    const onClick = () => {
+      setSelectedIssue(row);
+      setSelectedIssueNumber(index);
+      navigate('/a11y-issue')
+    }
+
     return (
       <div
-        className="row clickable-row"
+        className={`row clickable-row ${selectedIssueNumber === index?  'slected-row' : ''}`}
         style={style}
         tabIndex={0}
         role="row"
         aria-label={`Row ${row.id}`}
-        onClick={() => console.log('Row clicked:', row)}
+        onClick={onClick}
         onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
-              window.alert(row);
+              onClick()
             }
         }}
       >

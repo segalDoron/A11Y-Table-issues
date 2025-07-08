@@ -24,6 +24,8 @@ export type Issue = {
   
   export const SEARCHABLE_COLUMNS: ColumnKey[] = ['selector', 'url'];
 
+  export const MOBILE_COLUMN_NAMES: ColumnKey[] = ['rowIndex', 'component', 'issueType', 'severity'];
+
   export const COLUMN_NAMES: Record<ColumnKey, string> = {
     rowIndex: 'No.',
     issueType: 'Issue Type',
