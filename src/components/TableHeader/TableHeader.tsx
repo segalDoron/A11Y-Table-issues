@@ -1,10 +1,10 @@
 import React from 'react';
 import {includes, type DebouncedFunc} from 'lodash';
 
-import { COLUMN_KEYS, COLUMN_NAMES, type ColumnKey } from '@/types/issues';
+import { COLUMN_NAMES, type ColumnKey } from '@/types/issues';
 import './TableHeader.css';
 
-type TableHeaderProps = {
+export type TableHeaderProps = {
     sortKey?: string,
     sortAsc?: boolean,
     setSortAsc?: React.Dispatch<React.SetStateAction<boolean>>,
@@ -12,7 +12,6 @@ type TableHeaderProps = {
     searchableColumns?: ColumnKey[],
     columns: ColumnKey[],
     searchFunction?: DebouncedFunc<(searchTerm: string, columnKey: string) => void>,
-
 }
 
 const TableHeader = ({

@@ -29,7 +29,7 @@ type PlaceHolderProps = {
     type: keyof typeof Types;
     buttonProps?: ButtonProps;
     infoText?: string;
-    width?: string;
+    width?: string | number;
     height?: string;
     
 };
