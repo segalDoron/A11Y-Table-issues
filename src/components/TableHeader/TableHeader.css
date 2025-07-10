@@ -5,12 +5,12 @@
     min-width: 768px; /* The min width is equls to a avarge tablet width */
     table-layout: fixed;
   
-    .active-sorted-cloumn {
+    .active-sorted-column {
       font-weight: 600;
       background-color: #435060;
     }
 
-    .index-cloumn {
+    .index-column {
       width: 64px;
     }
 
@@ -84,7 +84,7 @@
       padding: 0 4px;
     }
 
-    .index-cloumn {
+    .index-column {
       width: 40px;
     }
   }

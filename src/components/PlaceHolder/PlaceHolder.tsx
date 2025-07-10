@@ -1,5 +1,5 @@
-import succuess from '@/assets/success.webp';
-import nothigToSee from '@/assets/nothing-here.webp';
+import success from '@/assets/success.webp';
+import nothingToSee from '@/assets/nothing-here.webp';
 import somethingWantWrong from '@/assets/something-went-wrong.webp';
 import './placeHolder.css'
 
@@ -9,12 +9,12 @@ const Types = {
     alt: "Oops something went wrong"
   },
   success : {
-    imgSrc: succuess, 
-    alt: "Greate sucess"
+    imgSrc: success, 
+    alt: "Great success"
   },
   empty : {
-    imgSrc: nothigToSee,
-    alt: "Nothis to see here"
+    imgSrc: nothingToSee,
+    alt: "Nothing to see here"
   }
 } as const;
 

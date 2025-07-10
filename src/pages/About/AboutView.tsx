@@ -14,11 +14,11 @@ const AboutView = ({selectedIssueNumber = 0, selectedIssue}: AboutViewProps) => 
   const index = isNull(selectedIssueNumber) ? 0 : selectedIssueNumber + 1
 
   return (
-    <div className='about-root'>
-        <div><Link to='/'>Page list</Link> / Issue info</div>
+    <section className='about-root'>
+        <nav><Link to='/'>Page list</Link> / Issue info</nav>
         <h1>A11Y issue id number: {index}</h1>
         {selectedIssue && <IssueCard issue={selectedIssue}/>}
-    </div>
+    </section>
   );
 }
 

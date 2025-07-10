@@ -24,9 +24,9 @@ const TableHeader = ({
     columns,
 }: TableHeaderProps) => {
 
-    const getHeaderCoulmnStyle = (key: ColumnKey) => {
-        const activeSortStyle = sortKey === key ? 'active-sorted-cloumn' : '';
-        const isRowIndex = 'rowIndex' === key ? 'index-cloumn' : ''
+    const getHeaderColumnStyle = (key: ColumnKey) => {
+        const activeSortStyle = sortKey === key ? 'active-sorted-column' : '';
+        const isRowIndex = 'rowIndex' === key ? 'index-column' : ''
         return `${activeSortStyle} ${isRowIndex}`;
     }
 
@@ -41,7 +41,7 @@ const TableHeader = ({
                 setSortKey(key);
                 setSortAsc(true);
             }
-      };
+    };
 
     return (
         <table className="header-root">
@@ -51,7 +51,7 @@ const TableHeader = ({
                         <th 
                             key={key}
                             scope="col"
-                            className={getHeaderCoulmnStyle(key)}
+                            className={getHeaderColumnStyle(key)}
                         >
                             <div className="th-content">
                                 <span>

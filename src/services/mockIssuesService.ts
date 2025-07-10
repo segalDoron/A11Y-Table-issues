@@ -70,22 +70,17 @@ import {type Issue} from '../types/issues';
     }
   ]
 
-  export const fetchMockIssues = ({
-    isSuccessfullFetch = true,
-    isEmpty = false,
-  }: {
-    isSuccessfullFetch?: boolean;
-    isEmpty?: boolean;
-  }): { promise: Promise<Issue[]>; cancel: () => void } =>{
+  export const fetchMockIssues = ({isSuccessfulFetch = true}: {isSuccessfulFetch?: boolean}): 
+  { promise: Promise<Issue[]>; cancel: () => void } =>{
   
     let timeoutId: ReturnType<typeof setTimeout>;
   
     const promise = new Promise<Issue[]>((resolve, reject) => {
       timeoutId = setTimeout(() => {
-        if (!isSuccessfullFetch) {
+        if (!isSuccessfulFetch) {
           reject(new Error('Mock fetch failed'));
         } else {
-          resolve(isEmpty ? [] : mockData);
+          resolve(mockData);
         }
       }, 2000);
     });

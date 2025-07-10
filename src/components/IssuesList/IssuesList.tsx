@@ -2,10 +2,10 @@ import React from 'react';
 import _ from 'lodash';
 import { type ListChildComponentProps } from 'react-window';
 
-import IssueRow from '@/components/IsuessRow/IsuessRow'
+import IssueRow from '@/components/IssuesRow/IssuesRow'
 import { useDebouncedSearch } from '@/hooks/useDebouncedSearch';
 
-import {useSortedIssues} from '@/hooks/sortItems';
+import {useSortItems} from '@/hooks/useSortItems';
 import { COLUMN_NAMES, SEARCHABLE_COLUMNS, type ColumnKey, type Issue } from '@/types/issues';
 
 import SharedList from '@/components/SharedList/SharedList';
@@ -28,7 +28,7 @@ const IssuesList = ({data}: IssuesListProps) => {
       onSearchResult: setFilteredIssues,
     });
 
-    const sortedData = useSortedIssues(filteredIssues, sortKey, sortAsc);
+    const sortedData = useSortItems(filteredIssues, sortKey, sortAsc);
 
     React.useLayoutEffect(() => {
     const updateHeight = () => {

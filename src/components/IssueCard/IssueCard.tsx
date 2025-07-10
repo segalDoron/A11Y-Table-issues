@@ -47,8 +47,8 @@ const IssueCard= ({
                 <div><strong>Selector:</strong> {selector}</div>
                 <div><strong>URL:</strong> <a href={url} target="_blank" rel="noopener noreferrer">{url}</a></div>
                 <div><strong>Description:</strong> {description}</div>
-                <div className="codeSnippe"><strong>Code Snippet:</strong> <code>{codeSnippet}</code></div>
-                <div><img src={screenshot} alt="Accecabilty issue screen shot"/></div>
+                <div className="codeSnippet"><strong>Code Snippet:</strong> <code>{codeSnippet}</code></div>
+                <div><img src={screenshot} alt="Acceptability issue screen shot"/></div>
               </>
             )}
             {isListCard && (

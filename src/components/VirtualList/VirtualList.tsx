@@ -50,7 +50,7 @@ const VirtualList = <T,>({
     return () => {
       window.removeEventListener('resize', updateHeight);
     };
-  }, [offset]);
+  }, [containerRef]);
 
   const DefaultRow = ({ index, style }: { index: number; style: CSSProperties }) => (
     <div style={style} className={rowClassName}>

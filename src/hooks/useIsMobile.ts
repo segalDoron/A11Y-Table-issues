@@ -12,7 +12,6 @@ export const useIsMobile = (): boolean => {
 
     window.addEventListener('resize', handleResize);
 
-    // Call once in case of SSR or delayed rendering
     handleResize();
 
     return () => {

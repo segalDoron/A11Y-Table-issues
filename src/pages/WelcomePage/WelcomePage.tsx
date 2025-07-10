@@ -3,21 +3,20 @@ import React from "react";
 import { useTableContext } from '@/context/TableContext';
 import { fetchMockIssues} from '@/services/mockIssuesService';
 
-import WelcomView from './WelcomPageView';
-import './welcomPage.css'
+import WelcomePageView from './WelcomePageView';
 
-const WelcomPage = () => {
+const WelcomePage = () => {
   const { tableData, setTableData } = useTableContext();
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [isFetchError, setIsFeatchError] = React.useState<boolean>(false);
-  const [isSuccessfullFetch, setIsSuccessfullFetch] = React.useState<boolean>(false)
+  const [isFetchError, setIsFetchError] = React.useState<boolean>(false);
+  const [isSuccessfulFetch, setIsSuccessfulFetch] = React.useState<boolean>(false)
   
   React.useEffect(() => {
     if (tableData) {
       return;
     }
 
-    const { promise, cancel } = fetchMockIssues({ isSuccessfullFetch });
+    const { promise, cancel } = fetchMockIssues({ isSuccessfulFetch });
     setIsLoading(true)
     promise
       .then((data) => {
@@ -25,7 +24,7 @@ const WelcomPage = () => {
       })
       .catch((err) => {
         console.error(err);
-        setIsFeatchError(true);
+        setIsFetchError(true);
       })
       .finally(() => {
         setIsLoading(false)
@@ -34,15 +33,15 @@ const WelcomPage = () => {
     return () => {
       cancel();
     };
-  }, [tableData, isSuccessfullFetch]);
+  }, [tableData, isSuccessfulFetch]);
 
   const tryAgain = () => {
-    setIsSuccessfullFetch(true)
-    setIsFeatchError(false);
+    setIsSuccessfulFetch(true)
+    setIsFetchError(false);
   }
 
   return (
-    <WelcomView
+    <WelcomePageView
       data = {tableData}
       tryAgain = {tryAgain}
       isLoading={isLoading}
@@ -51,4 +50,4 @@ const WelcomPage = () => {
   )
 }
 
-export default WelcomPage;
+export default WelcomePage;

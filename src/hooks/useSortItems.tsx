@@ -5,11 +5,11 @@ import { type ColumnKey, type Issue } from '@/types/issues';
 
 type SortDirection = boolean;
 
-export function useSortedIssues(
+export const useSortItems = (
   issues: Issue[] | null | undefined,
   sortKey: ColumnKey,
   sortAsc: SortDirection
-): Issue[] | null {
+): Issue[] | null => {
   return useMemo(() => {
     if (!issues || _.isEmpty(issues)) {
       return null;

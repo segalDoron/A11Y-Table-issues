@@ -31,7 +31,7 @@
 
   .clickable-row:hover,
   .clickable-row:focus,
-  .slected-row {
+  .selected-row {
     border: 2px solid #7787b7;
     background-color: #f5faff;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);

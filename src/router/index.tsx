@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import About from '@/pages/About/About';
-import WelcomPage from '@/pages/WelcomPage/WelcomPage';
+import WelcomePage from '@/pages/WelcomePage/WelcomePage';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <WelcomPage />,
+    element: <WelcomePage />,
   },
   {
     path: '/a11y-issue',

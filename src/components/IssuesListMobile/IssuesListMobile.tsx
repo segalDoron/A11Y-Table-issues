@@ -5,7 +5,7 @@ import IssueCard from '@/components/IssueCard/IssueCard';
 import { useDebouncedSearch } from '@/hooks/useDebouncedSearch';
 import { SEARCHABLE_COLUMNS, MOBILE_COLUMN_NAMES, type ColumnKey, type Issue } from '@/types/issues';
 
-import {useSortedIssues} from '@/hooks/sortItems';
+import {useSortItems} from '@/hooks/useSortItems';
 import SharedList from '@/components/SharedList/SharedList';
 
 import './IssuesListMobile.css'
@@ -31,7 +31,7 @@ const IssuesListMobile = ({data}: IssuesListProps) => {
         onSearchResult: setFilteredIssues,
     });
 
-    const sortedData = useSortedIssues(filteredIssues, sortKey, sortAsc);
+    const sortedData = useSortItems(filteredIssues, sortKey, sortAsc);
 
     const Row = ({ index, style }: { index: number; style: React.CSSProperties }) => {
         if (!sortedData) {
@@ -48,38 +48,38 @@ const IssuesListMobile = ({data}: IssuesListProps) => {
 
     return (
         <>
-        <div className='search-wrapper'>
-            {SEARCHABLE_COLUMNS.map(name => (
-                <span role="search" aria-label={`${name} selector Search`} className='search-box'>
-                    <label htmlFor={`${name}-search`}>search:</label>
-                    <input 
-                        type="text"
-                        id="selector-search" 
-                        name={name} 
-                        className="column-filter-input"
-                        placeholder={name}
-                        aria-label={name}
-                        onChange={(e) => {debouncedSearch(e.target.value, name)}}
-                    />
-                </span>
-            ))}
-        </div>
-        <SharedList
-            tableHeaderProps={{
-                sortKey,
-                sortAsc,
-                setSortAsc,
-                setSortKey,
-                columns: MOBILE_COLUMN_NAMES
-            }}
-            ListProps= {{
-                height,
-                itemSize: ITEM_SIZE,
-            }}
-            imgWidth={'90%'}
-            row={Row}
-            tableCount={_.size(filteredIssues)}
-        />
+            <div className='search-wrapper'>
+                {SEARCHABLE_COLUMNS.map(name => (
+                    <span role="search" aria-label={`${name} selector Search`} className='search-box'>
+                        <label htmlFor={`${name}-search`}>search:</label>
+                        <input 
+                            type="text"
+                            id="selector-search" 
+                            name={name} 
+                            className="column-filter-input"
+                            placeholder={name}
+                            aria-label={name}
+                            onChange={(e) => {debouncedSearch(e.target.value, name)}}
+                        />
+                    </span>
+                ))}
+            </div>
+            <SharedList
+                tableHeaderProps={{
+                    sortKey,
+                    sortAsc,
+                    setSortAsc,
+                    setSortKey,
+                    columns: MOBILE_COLUMN_NAMES
+                }}
+                ListProps= {{
+                    height,
+                    itemSize: ITEM_SIZE,
+                }}
+                imgWidth={'90%'}
+                row={Row}
+                tableCount={_.size(filteredIssues)}
+            />
         </>
     )
 }

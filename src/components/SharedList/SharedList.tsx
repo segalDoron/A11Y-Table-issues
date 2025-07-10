@@ -42,8 +42,8 @@ const SharedList = ({sectionClass, containerRef, tableHeaderProps, imgWidth = ''
     <section className={sectionClass} role="region" aria-label="Accecabilty issues Table" ref={containerRef}>
       <TableHeader {...tableHeaderProps}/>
       {tableCount === 0 ? 
-         <Placeholder type='empty' infoText='Nothing to see here' height="312" width={imgWidth}/> :
-         <List
+        <Placeholder type='empty' infoText='Nothing to see here' height="312" width={imgWidth}/> :
+        <List
             ref={listRef}
             width="100%"
             itemSize={ROW_HEIGHT}
@@ -53,7 +53,7 @@ const SharedList = ({sectionClass, containerRef, tableHeaderProps, imgWidth = ''
             {...ListProps}
           >
           {Row}
-       </List>
+        </List>
       }
     </section>
   );

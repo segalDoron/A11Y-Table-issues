@@ -10,11 +10,11 @@ type SearchProps = {
 
 export const useDebouncedSearch = ({ data, onSearchResult}: SearchProps) => {
   const debouncedSearch = React.useRef(
-    _.debounce((searchTerm: string, sreach_coloumn: string) => {
+    _.debounce((searchTerm: string, search_column: string) => {
       const term = _.toLower(searchTerm.trim());
 
       const results = _.filter(data, item => {
-        const value = _.toLower(_.get(item, sreach_coloumn, ''));
+        const value = _.toLower(_.get(item, search_column, ''));
         return _.includes(value, term);
       })
       onSearchResult(results);

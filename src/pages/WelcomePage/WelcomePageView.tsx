@@ -7,21 +7,21 @@ import IssuesList from '@/components/IssuesList/IssuesList'
 import PlaceHolder from '@/components/PlaceHolder/PlaceHolder';
 import IssuesListMobile from '@/components/IssuesListMobile/IssuesListMobile'
 
-import './welcomPage.css'
+import './WelcomePage.css'
 
-type issuesListProps = {
+type WelcomePageProps = {
   isLoading: boolean;
   isFetchError: boolean;
   tryAgain: () => void;
   data?: Issue[] | undefined;
 };
 
-const WelcomPage = ({
+const WelcomePageView = ({
   isLoading = true,
   data = undefined,
   tryAgain = () => {},
   isFetchError = false,
-} : issuesListProps) => {
+} : WelcomePageProps) => {
 
   const isMobile = useIsMobile();
 
@@ -53,4 +53,4 @@ const WelcomPage = ({
   );
 }
 
-export default WelcomPage;
+export default WelcomePageView;

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useTableContext } from '@/context/TableContext';
 import { COLUMN_KEYS, type Issue } from '@/types/issues';
-import './IsuessRow.css'
+import './IssuesRow.css'
 
 type RowProps = {
     index: number, 
@@ -14,13 +14,13 @@ type RowProps = {
     listSize: number 
 }
 
-const Row = ({ 
+const IssuesRow = ({ 
     index,
     style,
     sortAsc,
     listSize,
     sortedData,
- }: RowProps) => {
+  }: RowProps) => {
 
     const navigate = useNavigate();
     const {setSelectedIssue, selectedIssueNumber, setSelectedIssueNumber } = useTableContext();
@@ -71,4 +71,4 @@ const Row = ({
     );
   };
 
-export default Row;
+export default IssuesRow;
