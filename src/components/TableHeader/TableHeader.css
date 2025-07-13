@@ -79,13 +79,20 @@
   .header-root {
     min-width: auto;
     margin-bottom: 24px;
+    display: flex;
+    overflow-y: auto;
+    justify-content: space-around;
     
     th {
-      padding: 0 4px;
+      padding: 0 8px;
     }
 
     .index-column {
       width: 40px;
+    }
+
+    .sort-icon {
+      display: none;
     }
   }
 }

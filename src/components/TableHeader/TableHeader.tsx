@@ -1,6 +1,7 @@
 import React from 'react';
 import {includes, type DebouncedFunc} from 'lodash';
 
+import {useIsMobile} from '@/hooks/useIsMobile';
 import { COLUMN_NAMES, type ColumnKey } from '@/types/issues';
 import './TableHeader.css';
 
@@ -23,6 +24,7 @@ const TableHeader = ({
     searchFunction,
     columns,
 }: TableHeaderProps) => {
+    const isMobile = useIsMobile();
 
     const getHeaderColumnStyle = (key: ColumnKey) => {
         const activeSortStyle = sortKey === key ? 'active-sorted-column' : '';
@@ -43,6 +45,26 @@ const TableHeader = ({
             }
     };
 
+    const mobileHeaderProps = (key: ColumnKey): React.ThHTMLAttributes<HTMLTableCellElement> => {
+        if (!isMobile) {
+            return {};
+        }
+
+        return {
+            role: 'button',
+            tabIndex: 0,
+            onClick: () => handleSort(key),
+            'aria-pressed': sortKey === key ? sortAsc : undefined,
+            'aria-label': `Sort by ${COLUMN_NAMES[key]}`,
+            onKeyDown: (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleSort(key);
+                }
+            },
+        }
+    };
+
     return (
         <table className="header-root">
             <thead>
@@ -52,6 +74,7 @@ const TableHeader = ({
                             key={key}
                             scope="col"
                             className={getHeaderColumnStyle(key)}
+                            {...mobileHeaderProps(key)}
                         >
                             <div className="th-content">
                                 <span>
@@ -65,6 +88,7 @@ const TableHeader = ({
                                     >
                                         {sortKey === key ? (sortAsc ? '▲' : '▼') : '↕'}
                                     </button>
+                                    {isMobile && <span>{sortKey === key ? (sortAsc ? '▲' : '▼') : '↕'}</span>}
                                 </span>
                                     {searchableColumns && includes(searchableColumns, key) && (
                                         <input
